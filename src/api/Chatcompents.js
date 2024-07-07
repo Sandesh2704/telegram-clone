@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getChats, getMessages } from '../api/api'
+import { getChats, getMessages } from './api'
 
 export default function Chatcompents() {
 
