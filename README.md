@@ -1,6 +1,10 @@
 ## Deployment
 
+<<<<<<< HEAD
 The project has been deployed and can be accessed at [Live Website Link](https://telegram-clone-tau.vercel.app/home).
+=======
+The project has been deployed and can be accessed at [Live Website Link] (https://telegram-clone-tau.vercel.app/home).
+>>>>>>> 213afcea830a4ca86247f56531b0056389e289a5
 
 # Telegram Messaging App Clone
 
