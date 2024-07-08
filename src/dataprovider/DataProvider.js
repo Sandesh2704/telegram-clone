@@ -44,11 +44,6 @@ export const DataProvider = ({ children }) => {
         try {
             const response = await axios.get(`${BASE_URL}/get_chat_messages?chat_id=${chatId}`);
             setMessages(response.data.data);
-            // console.log('chatid', chatId)
-            // console.log('respose', response)
-            // console.log('response.data', response.data)
-            // console.log('response.data.data', response.data.data)
-            // console.log('messges', messages)
         } catch (error) {
             console.error("Error fetching messages:", error);
         }

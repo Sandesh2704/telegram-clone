@@ -4,14 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { DataProvider } from './dataprovider/DataProvider';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <DataProvider>
+    <Router> 
     <App />
+    </Router>
     </DataProvider>
-  </React.StrictMode>
+  // </React.StrictMode> 
 
 );
 

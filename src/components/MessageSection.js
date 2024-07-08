@@ -1,0 +1,178 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { useData } from '../dataprovider/DataProvider';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import SearchIcon from '@mui/icons-material/Search';
+import CallIcon from '@mui/icons-material/Call';
+import { Box, TextField, IconButton, Paper, List, ListItem, Avatar, CardHeader } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
+import {  InputAdornment} from '@mui/material';
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import MicIcon from '@mui/icons-material/Mic';
+import {  Typography } from '@mui/material';
+
+export default function MessageSection() {
+  const { messages, fetchMessages, selectedChatId, mode } = useData();
+
+  useEffect(() => {
+    if (selectedChatId) {
+      fetchMessages(selectedChatId);
+    }
+  }, [selectedChatId, fetchMessages]);
+  const [inputValue, setInputValue] = useState('');
+
+  const formatDate = (dateString) => {
+    const options = { month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+
+
+  return (
+    <>
+      <Paper sx={{ height: '100vh', display: 'flex', flexDirection: 'column',   }}>
+
+        {/* Top Section */}
+        <Box display="flex" justifyContent="space-between" alignItems="center" sx={{
+          borderBottom:  `${mode === 'dark' ? '' :  '1px solid #ddd' }`,
+          paddingY:1,
+          paddingX: 1,
+          backgroundColor:`${mode === 'dark' ? '#1C1C1C ' :  'white' }`,
+        }}>
+            <CardHeader
+              avatar={
+                <Avatar aria-label="recipe">
+                  {messages[0]?.sender.name ? messages[0].sender.name.charAt(0).toUpperCase() : 'U'}
+                </Avatar>
+              }
+              title={messages[0]?.sender.name || 'Unknown'}
+              subheader={new Date(messages[0]?.created_at).toLocaleDateString()}
+              sx={{
+                paddingY: 0,
+                paddingX: 1 
+              }}
+            />
+          <Box>
+            <IconButton>
+              <CallIcon />
+            </IconButton>
+            <IconButton>
+              <SearchIcon />
+            </IconButton>
+            <IconButton>
+              <MoreVertIcon />
+            </IconButton>
+          </Box>
+        </Box>
+
+        {/* Middle Section */}
+        <Box
+          sx={{
+            position:"relative",
+            flex: 1,
+            overflowY: 'auto',
+            overflowX:"hidden", 
+            backgroundColor:`${mode === 'dark' ? 'black' :  '#F7FFD8 ' }`, 
+            paddingX:{md: 1, lg: 20}
+
+          }}
+        >
+          <List>
+            {messages.map((message) => (
+              <ListItem
+                key={message.id}
+                sx={{
+                  display: 'flex',
+                  justifyContent: message.sender_id === 1 ? 'flex-end' : 'flex-start',
+                  paddingX:   { xs: 1, md: 1, lg:2 },
+                  paddingY:   { xs: 0.5  },
+                }}
+              >
+ <Typography
+        sx={{
+          position: 'absolute',
+          top: 10,
+          backgroundColor: '#e0e0e0',
+          padding: '2px 10px',
+          borderRadius: '10px',
+          fontSize: '0.75rem',
+          marginBottom: '10px',
+          textAlign: 'center',
+          zIndex: 1,
+        }}
+      >
+        {formatDate(message.created_at)}
+      </Typography>
+                <Box
+                  sx={{
+                    maxWidth: '70%',
+                    padding: 1,
+                    borderRadius: 2,
+                    backgroundColor: message.sender_id === 1 ?  `${mode === 'dark' ? '#0277bd' :  '#B9FFF1 ' }` :`${mode === 'dark' ? '#1C1C1C' :  'white' }` ,
+                    // backgroundColor: message.sender_id === 1 ? '#dcf8c6' : '#fff',
+                    boxShadow: 1,
+                    display: 'flex',
+                    alignItems:'end'
+                  }}
+ >
+        <Typography sx={{marginRight: 3} }>{message.message}</Typography>
+      <Typography sx={{fontSize: '0.70rem',}}>{ new Date(message.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</Typography>
+                </Box>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+
+        {/* Bottom Section */}
+
+        <Box sx={{ display: 'flex', alignItems: 'center', marginY: 1,  paddingX:{md: 1, lg: 20}, }}>
+      <TextField
+        variant="outlined"
+        fullWidth
+        placeholder="Message"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        InputProps={{
+          style: { borderRadius: '12px' },
+          sx: {
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: 'transparent',
+              },
+              '&:hover fieldset': {
+                borderColor: 'transparent',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: 'transparent',
+              },
+            },
+          },
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton>
+                <AttachFileIcon sx={{ color: '#a4a4a4' }} />
+              </IconButton>
+            </InputAdornment>
+          ),
+          startAdornment :(
+            <InputAdornment position="start">
+            <IconButton>
+              <EmojiEmotionsIcon sx={{ color: '#a4a4a4' }} />
+            </IconButton>
+          </InputAdornment>
+          )
+        }}
+        sx={{ mx: 1, borderRadius: '12px' }}
+      />
+      <IconButton >
+        <MicIcon sx={{ color: '#a4a4a4' }} />
+      </IconButton>
+      <IconButton color="primary" >
+            <SendIcon />
+          </IconButton>
+    </Box>
+
+      </Paper>
+    </>
+  )
+}
