@@ -3,7 +3,7 @@ import { useData } from '../dataprovider/DataProvider';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import CallIcon from '@mui/icons-material/Call';
-import { Box, TextField, IconButton, Paper, List, ListItem, Avatar, CardHeader, Button } from '@mui/material';
+import { Box, TextField, IconButton, Paper, List, ListItem, Avatar, CardHeader,  } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { InputAdornment } from '@mui/material';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';

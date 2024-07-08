@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+## Deployment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project has been deployed and can be accessed at [Live Website Link](https://telegram-clone-tau.vercel.app/home).
 
-## Available Scripts
+# Telegram Messaging App Clone
 
-In the project directory, you can run:
+This project is a pixel-perfect clone of the Telegram messaging application, created as part of a frontend React Developer assignment for BeyondChats. Using ReactJS and MUI, I replicated the Telegram UI/UX for both desktop and mobile views. The project includes essential chat functionalities and utilizes provided API endpoints to fetch and display chats and messages. The goal was to demonstrate my UI/UX skills and proficiency in React. The project has been deployed for easy access and evaluation.
 
-### `npm start`
+## Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Dark/Light Mode Toggle**: Switch between dark and light themes.
+- **Message Data from API**: Fetch chat and message data from provided API endpoints.
+- **Responsive Design**: Optimized for both mobile and desktop views.
+- **Date Header**: Displays chat date headers dynamically while scrolling.
+- **Scroll to Bottom**: Automatically scrolls to the latest message.
+- **Fixed Date Display**: Shows a fixed date indicator at the top while scrolling.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## File Structure
 
-### `npm test`
+├── build
+├── node_modules
+├── public
+├── src
+│   ├── components
+│   │   ├── chat.png
+│   │   ├── ChatHeader.js          # Header component of the chat
+│   │   ├── ChatListSection.js     # Component for listing all chats
+│   │   ├── DexStopMenu.js         # Desktop menu component
+│   │   ├── MessageSection.js      # Component for displaying messages in a chat
+│   │   ├── MobileChatSection.js   # Component for mobile chat view
+│   │   ├── MobileMenu.js          # Mobile menu component
+│   ├── dataprovider
+│   │   ├── DataProvider.js        # Component for handling data fetching
+│   ├── layout
+│   │   ├── Layout.js              # Layout component
+│   ├── App.css
+│   ├── App.js                     # Main App component
+│   ├── App.test.js
+│   ├── index.css
+│   ├── index.js                   # Entry point of the application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
